@@ -30,12 +30,6 @@ public class Grade {
   @JoinColumn(name="student_id")
   private Student student;
 
-  public Grade(Long id, int score, Module module) {
-    this.id = id;
-    this.score = score;
-    this.module = module;
-  }
-
   public Grade(int score, Module module, Student student) {
     this.score = score;
     this.module = module;
@@ -68,5 +62,13 @@ public class Grade {
 
   public void setModule(Module module) {
     this.module = module;
+  }
+
+  public Student getStudent(Student student) {
+    return this.student;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
   }
 }

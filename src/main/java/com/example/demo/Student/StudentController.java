@@ -1,5 +1,6 @@
 package com.example.demo.Student;
 
+import com.example.demo.Exceptions.StudentAlreadyExistsException;
 import com.example.demo.Grade.Grade;
 import com.example.demo.Module.Module;
 import com.example.demo.Registration.Registration;
@@ -27,8 +28,8 @@ public class StudentController {
     studentService.addStudentGrade(id, grade);
   }
 
-//  @PostMapping("/grade/{id}")
-//  public void addStudentRegistration(@PathVariable("id") Long id, @RequestBody Module module) {
-//    studentService.addStudentRegistration(id, module);
-//  }
+  @PostMapping("/registration/{id}")
+  public void addStudentRegistration(@PathVariable("id") Long id, @RequestBody Module module) {
+    studentService.addStudentRegistration(id, module);
+  }
 }

@@ -119,8 +119,14 @@ public class Student {
     return average;
   }
 
-  public void addGrade(Grade g) {
-    grades.add(g);
+  public void addGrade(Grade g) throws NoRegistrationException {
+    for (Registration registration : registrations) {
+      if (registration.getModule().equals(g.getModule())) {
+        grades.add(g);
+        return;
+      }
+    }
+    throw new NoRegistrationException();
   }
 
   public Grade getGrade(Module module) throws NoGradeAvailableException {
@@ -130,5 +136,10 @@ public class Student {
       }
     }
     throw new NoGradeAvailableException("Student does not have grade for: " + module.getCode());
+  }
+
+  public void registerModule(Module module) {
+    Registration registration = new Registration(module, this);
+    registrations.add(registration);
   }
 }

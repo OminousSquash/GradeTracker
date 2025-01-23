@@ -1,5 +1,6 @@
 package com.example.demo.Module;
 
+import com.example.demo.DTOs.ModuleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.Module.ModuleService;
